@@ -12,6 +12,9 @@ app.use("/graphql",graphqlHTTP({
     schema,
     graphiql:true
    }))
+app.get("/",(req,res)=>{
+    res.end("HEY boy")
+})
 app.use(express.static("public"))
 
 
