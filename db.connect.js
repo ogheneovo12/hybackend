@@ -1,8 +1,9 @@
  const db = {
-              host: "https://databases.000webhost.com/?_ga=2.128261260.129808136.1589872213-1268514077.1584980487",
-              user: "id13019641_coder4christ",
-              password: "bn_F2|BZoHp1wC/e",
-              database:"hychurch",
+              host: "bgtjj9fw4j7k8ystcaiy-mysql.services.clever-cloud.com",
+              user: "upfzjpkjwg3ocygt",
+              password: "edufh1NmS6a2jsDSXNrh",
+              database:"bgtjj9fw4j7k8ystcaiy",
+              port:3306,
               multipleStatements: true
 }
 
