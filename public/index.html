@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HEY world</h1>
+    <script>
+     async function getSong(){
+         try{
+            const getSong = await fetch("https://api.musixmatch.com/ws/1.1/artist.search?apikey=70c8db01a84f0c5476a313d30b063f35&q_artist=prodigy&page_size=5",{
+                mode:"no-cors"
+            });
+            console.log(getSong.text());
+         }catch(err){
+
+      }
+            
+}
+getSong()
+    </script>
+</body>
+</html>
