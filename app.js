@@ -12,11 +12,11 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
 app.get("/",(req,res)=>{
-    res.end("HEY boy")
+    res.send("HEY boy")
 })
 // app.use("/graphql",graphqlHTTP({
 //     schema,
 //     graphiql:true
 // }))
 const server = http.createServer(app);
-server.listen(5000,()=>console.log("servers started at port 5000"))
+server.listen(5000)
