@@ -3,8 +3,8 @@ const http = require("http")
 const app = express();
 const bodyparser = require("body-parser")
 // const graphqlHTTP = require("express-graphql");
-const schema = require("./graphql/Schema")
-const cors = require("cors");
+//const schema = require("./graphql/Schema")
+//const cors = require("cors");
 
 // app.use(cors())
 
