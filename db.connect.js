@@ -1,9 +1,9 @@
  const fs=require("fs")
  const db = {
-              host: "mysql.freehostia.com",
-              user: "ukuogh_hychurch",
+              host: "34.72.208.155",
+              user: "root",
               password: "Benj@_2018",
-              database:"ukuogh_hychurch",
+              database:"hychurch",
               port:3306,
               multipleStatements: true
 }
