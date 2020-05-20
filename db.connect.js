@@ -1,8 +1,9 @@
+ const fs=require("fs")
  const db = {
-              host: "bgtjj9fw4j7k8ystcaiy-mysql.services.clever-cloud.com",
-              user: "upfzjpkjwg3ocygt",
-              password: "edufh1NmS6a2jsDSXNrh",
-              database:"bgtjj9fw4j7k8ystcaiy",
+              host: "mysql.freehostia.com",
+              user: "ukuogh_hychurch",
+              password: "Benj@_2018",
+              database:"ukuogh_hychurch",
               port:3306,
               multipleStatements: true
 }
