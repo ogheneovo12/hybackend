@@ -193,7 +193,7 @@ class controller {
      }
      columns = columns.slice(0,columns.length-1) ;
      const [rows, fields] = await con.query(`update hydob set ${columns} where id = '${id}';
-      SELECT * FROM hytest where id = ${id}`);
+      SELECT * FROM hydob where id = ${id}`);
       if(rows[0].affectedRows < 1){
         throw Error(`no youth with id ${id}`)
       }
