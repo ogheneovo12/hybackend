@@ -16,23 +16,60 @@ function getWeekLength(day, month) {
   return { weekStart, weekEnding };
 }
 class controller {
+  static async addYouth(args){
+    try {
+  const newYouth =[
+    args.Name || "",
+    args.Email || "",
+    args.Date_of_Birth || "",
+    args.Date_of_Birth || "",
+    args.Telephone_1 || "",
+    args.Telephone_2 || "",
+    args.Gender || "",
+    args.Occupation || "",
+    args.Place_of_Work || "",
+    args.Course || "",
+    args.State_of_Origin || "",
+    args.Next_of_kin || "",
+    args.Address || "",
+    args.Dept || "",
+    args.HFellowship || "",
+    args.Marital_Status||""
+  ]
+    const con = await mysql.createConnection(db);
+    const [rows, fields] = await con.execute(
+    `insert into hytest (Name, Email, Telephone_1,Telephone_2,
+      Membership_Status,Date_of_Birth,Gender,Occupation,
+      Place_of_Work,Course,State_of_Origin,Next_of_Kin,Address,
+      Dept,Hfellowship,Marital_Status
+      ) Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+    newYouth
+  );
+  return args;
+  console.log(rows);
+} catch (err) {
+  console.log(err);
+}
+}
   static async getYouth(id) {
     try {
       const con = await mysql.createConnection(db);
       const [rows, fields] = await con.execute(
-        `SELECT * FROM hydob where id=?`,
+        `SELECT * FROM hydob where id=? and status ="active"`,
         [id]
       );
-      console.log(rows[0]);
+      if(!rows[0]){
+        throw new Error(`no Youth with  id ${id}`)
+      }
       return rows[0];
     } catch (err) {
-      console.log(err);
+      throw err
     }
   }
   static async getAllYouths(id) {
     try {
       const con = await mysql.createConnection(db);
-      const [rows, fields] = await con.query(`SELECT * FROM hydob`);
+      const [rows, fields] = await con.query(`SELECT * FROM hytest where status="active"`);
       return rows;
     } catch (err) {
       console.log(err);
@@ -144,6 +181,31 @@ class controller {
     } catch (err) {
       console.log(err);
     }
+  }
+  static async updateYouth(id,input){
+    const con = await mysql.createConnection(db);
+    input = JSON.parse(JSON.stringify(input));
+    let columns = ``;
+     for(let key in input){
+        if(input.hasOwnProperty(key)){
+          columns +=`${key} = '${input[key]}',`
+        }
+     }
+     columns = columns.slice(0,columns.length-1) ;
+     const [rows, fields] = await con.query(`update hytest set ${columns} where id = '${id}';
+      SELECT * FROM hytest where id = ${id}`);
+      if(rows[0].affectedRows < 1){
+        throw Error(`no youth with id ${id}`)
+      }
+     return rows[1][0];
+  }
+  static async deleteYouth(id){
+    const con = await mysql.createConnection(db);
+    const [rows]=await con.query(`UPDATE hytest set status ='inactive' where id =${id}`)
+    if(rows.affectedRows < 1){
+      throw new Error("delete was not succesfull")
+    }
+    return {id,message:"deleted user succesfully",success:true}
   }
 }
 

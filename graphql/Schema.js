@@ -1,72 +1,50 @@
-const graphql = require("graphql");
+const { buildSchema } = require("graphql");
 const controllers = require("./controller");
-const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLSchema,
-  GraphQLList,
-} = graphql;
-const YouthType = new GraphQLObjectType({
-  name: "Youth",
-  fields: () => ({
-    id: { type: GraphQLString },
-    Name: { type: GraphQLString },
-    Date_of_Birth: { type: GraphQLString },
-    Email: { type: GraphQLString },
-    Telephone_1: { type: GraphQLString },
-    Telephone_2: { type: GraphQLString },
-    Address: { type: GraphQLString },
-    Member: { type: GraphQLString },
-    Gender: { type: GraphQLString },
-    Marital_Status: { type: GraphQLString },
-    Gender: { type: GraphQLString },
-    Occupation: { type: GraphQLString },
-    Place_of_Work: { type: GraphQLString },
-    Course: { type: GraphQLString },
-    Next_of_kin: { type: GraphQLString },
-    Membership_Status: { type: GraphQLString },
-    Dept: { type: GraphQLString },
-    HFellowship: { type: GraphQLString },
-  }),
-});
-const Birthdays = new GraphQLObjectType({
-  name: "Birthdays",
-  fields: () => ({
-    month: { type: new GraphQLList(YouthType) },
-    week: { type: new GraphQLList(YouthType) },
-    today: { type: new GraphQLList(YouthType) },
-  }),
-});
-const RootQuery = new GraphQLObjectType({
-  name: "RootQueryType",
-  fields: {
-    youth: {
-      type: YouthType,
-      args: { id: { type: GraphQLString } },
-      resolve(parent, args) {
-        const test = controllers.getYouth(args.id);
-        console.log(test);
-        return test;
-      },
-    },
-    youths: {
-      type: GraphQLList(YouthType),
-      resolve(parent, args) {
-        return controllers.getAllYouths();
-      },
-    },
-    birthdays: {
-      type: Birthdays,
-      resolve(parents, args) {
+const youthObjectField = require("./newSchemaObjectField");
+const newSchema = buildSchema(`
+type response{
+    id:ID!,
+    message:String!,
+    success:Boolean!
+}
+input createYouth{  
+    ${youthObjectField}
+}
+type Youth{
+    ${youthObjectField}
+}
+type Birthdays{
+    today:[Youth],
+    week:[Youth],
+    month:[Youth]
+}
+ type Query{
+    youth(id:ID!):Youth,
+    youths:[Youth],
+    birthdays:Birthdays
+ }
+ type Mutation{
+  createYouth(input:createYouth!):Youth
+  updateYouth(id:ID!,input:createYouth):Youth
+  deleteYouth(id:ID!):response
+ }
+
+`)
+
+const root ={
+    youth:({id})=>controllers.getYouth(id),
+    youths:()=>controllers.getAllYouths(),
+    birthdays:()=>{
         return {
-          month: controllers.getMonthBirthday(),
-          week: controllers.getWeekBirthday(),
-          today: controllers.getDayBirthday(),
-        };
-      },
+            month: controllers.getMonthBirthday(),
+            week: controllers.getWeekBirthday(),
+            today: controllers.getDayBirthday(),
+          };
     },
-  },
-});
-module.exports = new GraphQLSchema({
-  query: RootQuery,
-});
+    createYouth:({input})=>controllers.addYouth(input),
+    updateYouth:({id,input})=>controllers.updateYouth(id,input),
+    deleteYouth:({id})=>controllers.deleteYouth(id)
+
+}
+
+module.exports = {newSchema,root}
