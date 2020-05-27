@@ -1,16 +1,11 @@
  const fs=require("fs")
  const db = {
-                host: "localhost",
-                user: "root",
-                password: "",
-                database:"hychurch",
+                host: process.env.dbHost || "localhost",
+                user:process.env.dbUser  || "root",
+                password:process.env.dbPassword ||  "",
+                database:process.env.dbName || "hychurch",
+                port:process.env.dbPort || 3306,
                 multipleStatements: true
-            //   host: "34.72.208.155",
-            //   user: "root",
-            //   password: "Benj@_2018",
-            //   database:"hychurch",
-            //   port:3306,
-            //   multipleStatements: true
 }
 
 module.exports = db;
