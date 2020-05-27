@@ -38,7 +38,7 @@ class controller {
   ]
     const con = await mysql.createConnection(db);
     const [rows, fields] = await con.execute(
-    `insert into hytest (Name, Email, Telephone_1,Telephone_2,
+    `insert into hydob (Name, Email, Telephone_1,Telephone_2,
       Membership_Status,Date_of_Birth,Gender,Occupation,
       Place_of_Work,Course,State_of_Origin,Next_of_Kin,Address,
       Dept,Hfellowship,Marital_Status
@@ -69,7 +69,7 @@ class controller {
   static async getAllYouths(id) {
     try {
       const con = await mysql.createConnection(db);
-      const [rows, fields] = await con.query(`SELECT * FROM hytest where status="active"`);
+      const [rows, fields] = await con.query(`SELECT * FROM hydob where status="active"`);
       return rows;
     } catch (err) {
       console.log(err);
@@ -192,7 +192,7 @@ class controller {
         }
      }
      columns = columns.slice(0,columns.length-1) ;
-     const [rows, fields] = await con.query(`update hytest set ${columns} where id = '${id}';
+     const [rows, fields] = await con.query(`update hydob set ${columns} where id = '${id}';
       SELECT * FROM hytest where id = ${id}`);
       if(rows[0].affectedRows < 1){
         throw Error(`no youth with id ${id}`)
@@ -201,7 +201,7 @@ class controller {
   }
   static async deleteYouth(id){
     const con = await mysql.createConnection(db);
-    const [rows]=await con.query(`UPDATE hytest set status ='inactive' where id =${id}`)
+    const [rows]=await con.query(`UPDATE hydob set status ='inactive' where id =${id}`)
     if(rows.affectedRows < 1){
       throw new Error("delete was not succesfull")
     }
