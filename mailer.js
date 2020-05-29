@@ -32,7 +32,7 @@ const email = config => {
     })
   );
 
-  const from = "node @ ukuanovweogheneovo@gmail.com";
+  const from = "Hy Admin";
   return {
     send: (to, sub, template, context) => {
       if (!recepientEmails.includes(to)) {

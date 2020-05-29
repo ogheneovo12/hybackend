@@ -51,11 +51,12 @@ cron.schedule("0 0 * * sun",async ()=>{
     mailer.send("coder4christ@gmail.com","testing","birthday",context)
 })
 
-// app.get("/send", async(req, res)=>{
-//     const celebrants = await controller.getWeekBirthday();
-//     const context = {  celebrants, period:"week"}
-//     mailer.send("coder4christ@gmail.com","testing","birthday",context,res)
-//     res.end("json")
-// })
+app.get("/send", async(req, res)=>{
+    res.render("user",{layout:false})
+    // const celebrants = await controller.getWeekBirthday();
+    // const context = {  celebrants, period:"week"}
+    // mailer.send("coder4christ@gmail.com,olaniyan.deji@gmail.com","testing","birthday",context,res)
+    // res.end("json")
+})
 
 app.listen(PORT,()=>console.log("servers started at port 5000"))

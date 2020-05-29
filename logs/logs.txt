@@ -1,0 +1,27 @@
+5/28/2020, 12:41:13 AM:			 Error: Invalid login: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbt
+534-5.7.14 uFVVr-pHWpz2q9W7LICb8iRgB6OQnk-FJoRkAb2glZ7hM-Fn8r2mjFf_Bfrl2BJkpXvIx
+534-5.7.14 RZfQ-e35ECG6tSiMwh_9Jn8nKlGbAG7cqK1EeVitDh21KcDtPMYurB_B-BKUA4oX>
+534-5.7.14 Please log in via your web browser and then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 bd10sm3225508edb.10 - gsmtp
+5/28/2020, 12:47:56 AM:			 Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials m8sm3794591ejk.100 - gsmtp
+5/28/2020, 12:47:56 AM:			 Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials y18sm3946161ejb.87 - gsmtp
+5/28/2020, 12:50:51 AM:			 Error: Invalid login: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbt
+534-5.7.14 rjmuiSvZlLSci9zimYwF_X6hZwBz5QPXfMYGxsJbay06szydz1g8POoJWBUo2o2OsVdbE
+534-5.7.14 cMBPqrQT8ZOtky7V22elAW4ekaEj7cp1gVYBPC_NL3Y_0Uq0DU00f7L8QZ_aM5WB>
+534-5.7.14 Please log in via your web browser and then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 jx14sm3763364ejb.79 - gsmtp
+5/28/2020, 12:55:10 AM:			 Error: 11904:error:1408F10B:SSL routines:ssl3_get_record:wrong version number:c:\ws\deps\openssl\openssl\ssl\record\ssl3_record.c:332:
+
+5/28/2020, 12:55:57 AM:			 Error: Invalid login: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbt
+534-5.7.14 gu_OGnZQoQ8yiJAQLQmGMtiZ7_pNg9dk55DlGf2ciCPQ33JVm9ta95e0vLFg89VZwhTy1
+534-5.7.14 E-63WsHrj9CO3a12AsG-PGFiqPfZuJ2bltwy2fc0BAYkdB_tIgSzsAp-M4DSg9dM>
+534-5.7.14 Please log in via your web browser and then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 f24sm3440127edq.21 - gsmtp
+5/28/2020, 12:56:27 AM:			 Error: Connection closed unexpectedly
+5/28/2020, 12:57:35 AM:			 sent mail succesfully
+5/28/2020, 1:01:11 AM:			 sent mail succesfully
